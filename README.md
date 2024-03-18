@@ -6,9 +6,9 @@ We are attempting to catalog all of our preferred development tools and practice
 -  [Development best practices](Development%20Practices/Best%20Practices.md)
 -  [Tools](Development%20Practices/Tools/)
 	- [pre-commit](Development%20Practices/Tools/Pre-commit.md)
-	- [Docker](Development%20Practices/Tools/Containers/)
+	- [Containers](Development%20Practices/Tools/Containers/)
 		- [Dockerfiles](Development%20Practices/Tools/Containers/Dockerfiles.md)
-		- Compose Plugin - Planned but not yet available
+		- Docker Compose Plugin - Planned but not yet available
 	- [Python](Development%20Practices/Tools/Python/)
 		- [Poetry](Development%20Practices/Tools/Python/Poetry.md)
 		- Pipx - Planned but not yet available
