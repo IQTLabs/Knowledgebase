@@ -25,3 +25,4 @@ We are attempting to catalog all of our preferred development tools and practice
 		- [Poetry](Development%20Practices/Tools/Python/Poetry.md)
 		- Pipx - Planned but not yet available
 		- PDB++ - Planned but not yet available
+		- act - Planned but not yet available
