@@ -132,6 +132,7 @@ This will launch two containers, one to run ollama and a second that uses the AP
 ## Ollama registry
 Ollama has its own [library](https://ollama.com/library?sort=popular) of models that can be easily accessed through it's cli or api. 
 ![screenshot from the ollama website](screenshots/ol-llama-run.png)
+
 The general form of the command is
 ```sh
 ollama (run|pull) <MODEL_NAME>:<NUMBER_OF PARAMS>
@@ -141,6 +142,7 @@ ollama (run|pull) <MODEL_NAME>:<NUMBER_OF PARAMS>
 Ollama can run any model from the [HuggingFace](https://huggingface.co) registry that is in the [GGUF Format](https://medium.com/@vimalkansal/understanding-the-gguf-format-a-comprehensive-guide-67de48848256). On the HuggingFace page for the model you are interested in click on the "Use this model" dropdown if what you see looks llike the image below 
 
 ![screenshot from the hugging face website](screenshots/hf-ollama-run.png)
+
 then you should be able to use that model with Ollama. Selecting that item will take you to an ollama `run` command that can be used to invoke the model interactively. If you wish to use that model via the api, it is trivial to convert it to a `pull` command. The general format of this command will be:
 ```sh
 ollama (run|pull) hf.co/<USER>/<MODEL_NAME>[:<QUANTIZATION>]
