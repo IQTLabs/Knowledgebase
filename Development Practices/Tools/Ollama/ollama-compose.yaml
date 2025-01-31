@@ -1,0 +1,51 @@
+services:
+  ollama:
+    container_name: ollama
+    hostname: ollama
+    restart: no
+    image: 'local-ollama:latest'
+    build:
+      context: ollama
+      dockerfile: Dockerfile
+    # Uncomment These lines and comment out the port mapping if you only want the container to be
+    # accessible from inside of the docker network
+    # expose:
+    #   - 11434
+    ports:
+      - 11434:11434
+    # this line creates a local mount to store pulled models to avoid repeating large downloads
+    volumes:
+      - '${PWD}/ollama/models:/root/.ollama/models'
+    # Uncomment the following lines for nvidia GPU support
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    healthcheck:
+      test: curl --fail http://localhost:11434/api/tags || exit 1
+      interval: 30s
+      retries: 5
+      start_period: 60s
+      timeout: 2s
+    networks:
+      - llm
+    
+  model_puller:
+    image: 'curlimages/curl:8.6.0'
+    environment:
+      OLLAMA_HOST: 'ollama'
+      OLLAMA_PORT: 11434
+    volumes:
+      - '${PWD}/model_puller:/model_puller'
+    command: "/model_puller/pull.sh"
+    depends_on:
+      ollama:
+        condition: service_healthy
+    networks:
+      - llm
+networks:
+  llm:
+    name: llm
